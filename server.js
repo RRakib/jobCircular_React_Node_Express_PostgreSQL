@@ -1,6 +1,7 @@
 // Required Files
 const express = require("express");
 const db = require("./Config/database")
+const jobs = require("./Controller/jobs")
 
 // Connecting TO PostgreSQL
 db.authenticate()
@@ -10,9 +11,10 @@ db.authenticate()
     .catch(err => {
         console.log("ERROR!! " + err)
     })
-
+    
 // Middle Ware
 const app = express();
+app.use("/jobs" , jobs)
 
 // Listening To PORT
 const port = process.env.PORT || 5000;
