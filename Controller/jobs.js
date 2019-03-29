@@ -1,11 +1,20 @@
 // Required Files
 const express = require("express")
-const router = express.Router();
+const exp_router = express.Router();
+const job = require("../Models/Jobs")
+const db = require("../Config/database");
 
 // Routes
-router.get("/" , (req, res) => {
-    res.send("JOBS")
+exp_router.get("/" , (req, res) => {
+    job.findAll()
+        .then(jobs => {
+            console.log(jobs)
+            res.sendStatus(200)
+        })
+        .catch(err => {
+            console.log("ERROR" + err)
+        })
 })
 
 // Exports
-module.exports = router
+module.exports = exp_router
