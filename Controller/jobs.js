@@ -28,6 +28,11 @@ exp_router.get("/add" , (req, res) => {
     res.render("add")
 })
 
+// Contact
+exp_router.get("/contact" , (req, res) => {
+    res.render("contact")
+})
+
 // Tesing DB
 exp_router.get("/add" , (req, res) => {
     const data = {
