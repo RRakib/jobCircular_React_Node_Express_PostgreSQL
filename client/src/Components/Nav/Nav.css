@@ -1,0 +1,27 @@
+/* Nav Bar */
+.container{
+    display: grid;
+    background: #eee;
+    justify-content: space-between;
+    grid-template-columns: repeat(2, 1fr);
+    box-shadow: 0 7px 7px rgba(0,0,0,.2);
+    border-bottom: 3px solid lightseagreen; 
+}
+.container .logo{
+    font-size: 35px;
+    color: lightseagreen;
+    font-family: Yesteryear;
+}
+.container .logo span{
+    color: #333;
+    font-size: 50px;
+}
+.container nav{
+    padding: 28px 0;
+}
+.container nav a{
+    color: #555;
+    margin: 0 16px;
+    font-weight: bold;
+    text-decoration: none;
+}

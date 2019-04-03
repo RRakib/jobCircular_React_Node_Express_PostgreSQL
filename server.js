@@ -16,8 +16,6 @@ db.authenticate()
 const app = express();
 app.use("/jobs" , jobs);
 app.use(express.json());
-app.set("view engine" , "ejs");
-app.use(express.static("Public"));
 app.use(express.urlencoded({extended: false}));
 
 // Landing Page
