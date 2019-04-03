@@ -1,9 +1,12 @@
+// Imports
 import Thunk from "redux-thunk"
-import {createStore , compose , applyMiddleware} from "redux";
 import rootReducer from "./Reducers/rootReducer"
+import {createStore , compose , applyMiddleware} from "redux";
 
+// Extraction Thunk
 const middleware = [Thunk]
 
+// Redux Store
 const Store = createStore(
     rootReducer,
     compose(
@@ -11,4 +14,5 @@ const Store = createStore(
     )
 );
 
+// Exports
 export default Store;

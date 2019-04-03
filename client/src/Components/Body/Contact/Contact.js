@@ -1,5 +1,7 @@
+// Imports
 import React from "react";
 
+// Stateless Component
 const Contact = () => {
     return(
         <div>
@@ -12,4 +14,5 @@ const Contact = () => {
     )
 }
 
+// Exporting
 export default Contact;

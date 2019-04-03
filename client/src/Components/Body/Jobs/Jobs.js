@@ -1,6 +1,8 @@
+// Imports
 import "./Jobs.css"
 import React from "react"
 
+// Stateful Component
 const Jobs = () => {
     return(
         //  Body
@@ -23,4 +25,5 @@ const Jobs = () => {
     )
 }
 
+// Exporting
 export default Jobs;

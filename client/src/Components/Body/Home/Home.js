@@ -1,5 +1,7 @@
+// Imports
 import React from 'react'
 
+// Stateful Component
 const Home = () => {
   return (
     <div>
@@ -8,4 +10,5 @@ const Home = () => {
   )
 }
 
+// Exporting
 export default Home

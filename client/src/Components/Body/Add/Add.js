@@ -1,5 +1,7 @@
+// Imports
 import React from "react"
 
+// Stateless Component
 const Add = () => {
     return(
         <div>
@@ -8,4 +10,5 @@ const Add = () => {
     )
 }
 
+// Exporting
 export default Add;

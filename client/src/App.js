@@ -1,3 +1,4 @@
+// Imports
 import React, { Component } from 'react';
 import Add from "./Components/Body/Add/Add";
 import Nav from "./Components/Layout/Nav/Nav";
@@ -7,6 +8,7 @@ import Footer from "./Components/Layout/Footer/Footer";
 import Contact from "./Components/Body/Contact/Contact";
 import {BrowserRouter , Route, Switch} from "react-router-dom";
 
+// Stateful Component
 class App extends Component {
   render() {
     return (
@@ -26,4 +28,5 @@ class App extends Component {
   }
 }
 
+// Exporting
 export default App;

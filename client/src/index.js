@@ -1,3 +1,4 @@
+// Imports
 import './index.css';
 import App from './App';
 import React from 'react';
@@ -6,8 +7,9 @@ import Store from "./Store/Store";
 import { Provider } from "react-redux"
 import * as serviceWorker from './serviceWorker';
 
+// Rendering App With Redux Store
 ReactDOM.render(
-                <Provider>   
+                <Provider store = {Store}>   
                     <App />
                 </Provider>, 
                 document.getElementById('root')
