@@ -1,5 +1,6 @@
 import "./Nav.css"
 import React from "react"
+import {NavLink} from "react-router-dom" 
 
 const Nav = () => {
     return(
@@ -8,10 +9,10 @@ const Nav = () => {
                 <span>J</span>obs
             </div>
             <nav>
-                <a href="/">Home</a>
-                <a href="/jobs/all_jobs">Jobs</a>
-                <a href="/jobs/add">Add</a>
-                <a href="/jobs/Contact">Contact</a>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="jobs">Jobs</NavLink>
+                <NavLink to="add_jobs">Add</NavLink>
+                <NavLink to="contact">Contact</NavLink>
             </nav>
         </div>
     )
