@@ -45,7 +45,8 @@ exp_router.get("/contact" , (req, res) => {
 
 // POST Add Jobs
 exp_router.post("/add" , (req, res) => {
-
+    console.log(req.body)
+    res.status(200).json(req.body)
 })
 
 

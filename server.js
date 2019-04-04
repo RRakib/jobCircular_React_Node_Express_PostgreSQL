@@ -14,9 +14,11 @@ db.authenticate()
     
 // Middle Ware
 const app = express();
-app.use("/jobs" , jobs);
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+
+// Routing For Server
+app.use("/jobs" , jobs);
 
 // Landing Page
 app.get("/", (req, res) => {
