@@ -1,29 +1,61 @@
 // Imports
 import "./Jobs.css"
-import React from "react"
+import {Link} from "react-router-dom"
+import { connect } from "react-redux"
+import React , {Component} from "react"
+import { getData } from "../../../Store/Action/getAction"
 
 // Stateful Component
-const Jobs = () => {
-    return(
-        //  Body
-        <div class="body">
-            <h2>All Jobs</h2>
-            <div class="jobs">
-                <h3>> Looking for a react developer</h3>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                </p>
-                <ul>
-                    <li>Salary: <b>$1200</b> </li>
-                    <li> <a href="#">Apply Now</a> </li>
-                </ul>
-                <div class="required">
-                    <small>Requirements: <span> React, Redux , Javascript</span> </small>
+class Jobs extends Component{
+
+    // Using Hooks
+    componentDidMount = () => {
+        const {history , getD} = this.props;
+        getD(history)
+    }
+
+    render(){
+        const {data} = this.props.get.data;
+        console.log(data)
+        const jobDetails = data?( data.map(items => {
+            return(
+                <div key={items.id}>
+                    <div className="jobs">
+                        <h3>> {items.title} </h3>
+                        <p>
+                            {items.discription}
+                        </p>
+                        <ul>
+                            <li>Salary: <b>{items.budget}</b> </li>
+                            <li> <Link to="/">Apply Now</Link> </li>
+                        </ul>
+                        <div className="required">
+                            <small>Requirements: <span> {items.technologies}</span> </small>
+                        </div>
+                    </div>
                 </div>
+            )
+        })) : "Loading..."
+        return(
+            <div  className="body">
+                <h2>All Jobs</h2>
+                {jobDetails}
             </div>
-        </div>
-    )
+        )
+    }
 }
 
+// Accessing Redux State
+const mapStateToProps = (state) => {
+    return state
+}
+
+// Accessing action dispatcher
+const mapDispatchToProps = (dispatch) => {
+    return{
+        getD : (history) => dispatch(getData(history))
+    }
+} 
+
 // Exporting
-export default Jobs;
+export default connect(mapStateToProps , mapDispatchToProps)(Jobs);
