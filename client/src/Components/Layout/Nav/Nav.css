@@ -22,6 +22,10 @@
 .container nav a{
     color: #555;
     margin: 0 16px;
+    transition: .25s;
     font-weight: bold;
     text-decoration: none;
+}
+.container nav a:hover{
+    border-bottom: 3px solid #444;
 }
