@@ -10,6 +10,10 @@ const getReducer = (state = init , action) => {
             return{
                 data : action.payload.data
             }
+        case "POST DATA":
+            return{
+                data : action.payload.data
+            }
         default:
             return state
     }

@@ -1,7 +1,7 @@
 // Imports
 import Axios from "axios"
 
-// Action
+// Getting The Data from DB
 export const getData = (history) => (dispatch) => {
     Axios.get("/jobs")
          .then(job => {
@@ -14,4 +14,18 @@ export const getData = (history) => (dispatch) => {
          })
          .catch(err => console.log("ERROR!! " + err))
 
+}
+
+// Posting Data from 
+export const postData = (data) => (dispatch) => {
+    Axios.post("/jobs/add" , data)
+         .then(job => {
+             dispatch({
+                 type : "POST_DATA",
+                 payload : {
+                     data : job
+                 }
+             })
+         })
+         .catch(err => console.log("ERROR! " + err))
 }
