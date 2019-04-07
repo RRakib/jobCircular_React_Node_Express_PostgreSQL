@@ -17,7 +17,7 @@ export const getData = (history) => (dispatch) => {
 }
 
 // Posting Data from 
-export const postData = (data) => (dispatch) => {
+export const postData = (data , history) => (dispatch) => {
     Axios.post("/jobs/add" , data)
          .then(job => {
              dispatch({
@@ -25,7 +25,8 @@ export const postData = (data) => (dispatch) => {
                  payload : {
                      data : job
                  }
-             })
+             });
+             history.push("/jobs");
          })
          .catch(err => console.log("ERROR! " + err))
 }

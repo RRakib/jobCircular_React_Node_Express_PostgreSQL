@@ -1,10 +1,12 @@
 // Imports
-import React, {Component} from "react"
+import { connect } from "react-redux";
+import React, {Component} from "react";
+import { postData } from "../../../Store/Action/getAction";
 
 // Statefull Component
 class Add extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             title: "",
             budget : "",
@@ -13,6 +15,25 @@ class Add extends Component{
             contact_email : ""
         }
     }
+    handleChange = (e) => {
+        const {name , value} = e.target;
+        this.setState({
+            [name] : value
+        })
+    }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const {title,budget,discription,technologies,contact_email } = this.state;
+        let data = {
+            title,
+            budget,
+            discription,
+            technologies,
+            contact_email 
+        }
+        this.props.postData(data , this.props.history)
+    }
+
     render(){
         return(
             <div className="body">
@@ -58,8 +79,8 @@ class Add extends Component{
                         <p>Contact Email</p>
                         <input 
                             type = "email"
-                            name = "email"
-                            value = {this.state.email} 
+                            name = "contact_email"
+                            value = {this.state.contact_email} 
                             onChange = {this.handleChange}
                             placeholder = "Please enter the email"
                         />
@@ -72,5 +93,14 @@ class Add extends Component{
     }
 }
 
+const mapStateToProps = (state) => {
+    return state
+}
+const dispatchToProps = (dispatch) => {
+    return{
+        postData : (data , history) => dispatch(postData(data , history))
+    }
+}
+
 // Exporting
-export default Add;
+export default connect(mapStateToProps , dispatchToProps)(Add);
