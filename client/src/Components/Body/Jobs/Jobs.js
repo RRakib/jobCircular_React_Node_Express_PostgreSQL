@@ -16,7 +16,6 @@ class Jobs extends Component{
 
     render(){
         const {data} = this.props.get.data;
-        console.log(data)
         const jobDetails = data?( data.map(items => {
             return(
                 <div key={items.id}>
